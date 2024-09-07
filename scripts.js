@@ -1,4 +1,77 @@
-// scripts.js
+const preguntas = [
+    {
+        pregunta: "Juego Favorito:",
+        opciones: ["Grand Theft Auto V (GTA V)", "The Witcher 3: Wild Hunt", "Red Dead Redemption 2", "The Legend of Zelda: Breath of the Wild"],
+        correcta: 0
+    },
+    {
+        pregunta: "Color Favorito:",
+        opciones: ["Rojo", "Azul", "Verde", "Negro"],
+        correcta: 0
+    },
+    {
+        pregunta: "Comida Favorita:",
+        opciones: ["Pizza", "Sushi", "Tacos", "Pasta"],
+        correcta: 0
+    },
+    {
+        pregunta: "Película Favorita:",
+        opciones: ["Avengers: Infinity War", "Inception", "The Shawshank Redemption", "The Dark Knight"],
+        correcta: 0
+    },
+    {
+        pregunta: "Deporte Favorito:",
+        opciones: ["Fútbol", "Baloncesto", "Tenis", "Natación"],
+        correcta: 0
+    },
+    {
+        pregunta: "Estilo de Música Favorito:",
+        opciones: ["Pop", "Rock", "Jazz", "Electrónica"],
+        correcta: 0
+    },
+    {
+        pregunta: "Tipo de Vacaciones Favorito:",
+        opciones: ["Montaña", "Playa", "Ciudad", "Campo"],
+        correcta: 0
+    }
+];
+
+function generarPreguntas() {
+    const contenedorPreguntas = document.getElementById('preguntas');
+    preguntas.forEach((pregunta, index) => {
+        const divPregunta = document.createElement('div');
+        divPregunta.classList.add('pregunta');
+        divPregunta.innerHTML = `<h3>${pregunta.pregunta}</h3>`;
+        pregunta.opciones.forEach((opcion, i) => {
+            divPregunta.innerHTML += `
+                <label>
+                    <input type="radio" name="pregunta${index}" value="${i}">
+                    ${opcion}
+                </label><br>
+            `;
+        });
+        contenedorPreguntas.appendChild(divPregunta);
+    });
+}
+
+function verificarRespuestas() {
+    let aciertos = 0;
+    preguntas.forEach((pregunta, index) => {
+        const opciones = document.getElementsByName(`pregunta${index}`);
+        opciones.forEach(opcion => {
+            if (opcion.checked && parseInt(opcion.value) === pregunta.correcta) {
+                aciertos++;
+            }
+        });
+    });
+    const resultado = document.getElementById('resultado');
+    if (aciertos === preguntas.length) {
+        resultado.textContent = "¡Te mereces muchos besos! 😘";
+    } else {
+        resultado.textContent = "Igual te daré besos. 😘";
+    }
+}
+
 function mostrarCarta(tipo) {
     const cartas = {
         aburrida: "Hola, hermosa. Sé que estás aburrida, pero recuerda que cada momento es una oportunidad para descubrir algo nuevo. ¡Te reto a hacer algo diferente hoy! ❤️",
@@ -18,3 +91,5 @@ function mostrarCarta(tipo) {
 function cerrarCarta() {
     document.getElementById("modalCarta").style.display = "none";
 }
+
+window.onload = generarPreguntas;

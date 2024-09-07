@@ -2,39 +2,41 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Especial para Mi Novia</title>
+    <title>Hecho con amor</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Para Ti, Con Amor</h1>
+        <h1>Para ti Cristina, con amor</h1>
         <p>Bienvenida a tu espacio especial, hecho con mucho amor.</p>
     </header>
-
-    <section id="cartas">
-        <h2>Ábrelas Cuando...</h2>
-        <div class="cartas-container">
-            <button class="carta" onclick="mostrarCarta('aburrida')">Estés Aburrida</button>
-            <button class="carta" onclick="mostrarCarta('triste')">Estés Triste</button>
-            <button class="carta" onclick="mostrarCarta('enojadaConmigo')">Estés Enojada Conmigo</button>
-            <button class="carta" onclick="mostrarCarta('molestaConFamilia')">Estés Molesta con tu Familia</button>
-            <button class="carta" onclick="mostrarCarta('motivarte')">Necesites Motivación</button>
-            <button class="carta" onclick="mostrarCarta('feliz')">Quieras Ser Feliz</button>
-            <button class="carta" onclick="mostrarCarta('recuerdasAmor')">Recuerdes Cuánto Te Amo</button>
-            <button class="carta" onclick="mostrarCarta('abrazo')">Necesites Un Abrazo</button>
+    <main>
+        <div class="cuadro-pequeno" id="cuadro1">
+            <a href="carta.html">💌 Carta para ti amor</a>
         </div>
-    </section>
-
-    <!-- Modal para mostrar cartas -->
-    <div id="modalCarta" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="cerrarCarta()">&times;</span>
-            <div id="contenidoCarta"></div>
+        <div class="cuadro-grande" id="cuadro2">
+            <img src="Foto1/foto.jpg" alt="Foto de nosotros">
         </div>
-    </div>
-
-    <script src="scripts.js"></script>
+        <div class="cuadro" id="cuadro3">
+            <a href="galeria.html">📸 Galería de Fotos</a>
+        </div>
+        <div class="cuadro" id="cuadro4">
+            <a href="juego.html">🎮 Juego Interactivo</a>
+        </div>
+        <div class="cuadro" id="cuadro5">
+            <h2>Ábrelo cuando... 📂</h2>
+            <ul>
+                <li><a href="triste.html">😢 Estés triste</a></li>
+                
+                <li><a href="curioso.html">🤔 Quieras un dato curioso</a></li>
+                <li><a href="triste.html">😢 Estés triste</a></li>
+                <li><a href="amor.html">❤️ Quieras saber cuánto te amo</a></li>
+                
+                <li><a href="tiktok.html">🎥 Links de TikTok</a></li>
+            </ul>
+        </div>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
